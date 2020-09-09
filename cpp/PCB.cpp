@@ -32,8 +32,8 @@ PCB::PCB(Thread* thread, StackSize sizeOfStack, Time t) {
 
 #ifndef BCC_BLOCK_IGNORE
 	stack[stackCount - 1] = 0x200;
-	stack[stackCount - 2] = FP_SEG(wrapper);
-	stack[stackCount - 3] = FP_OFF(wrapper);
+	stack[stackCount - 2] = FP_SEG(&wrapper);
+	stack[stackCount - 3] = FP_OFF(&wrapper);
 
 	ss = FP_SEG(stack + stackCount - 12);
 	sp = FP_OFF(stack + stackCount - 12);
